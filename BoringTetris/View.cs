@@ -3,22 +3,15 @@ namespace BoringTetris
     public partial class View : Form
     {
         /*
-         * kan INTE välja dimensioner
-         * ett rutnät visas
-         * man klickar rutor, rutorna fylls
-         * när en hel horizontell rad är fylld försvinner den och övre rader faller INTE ner, spelaren får poäng
-         * starta knapp, startar nytt spel enligt dimensionerna
-         * model innehåller en 2d array med bool, och score, SetSquare(x,y) sätter en ruta, spelplanen uppdateras automatiskt
-         * controller hämtar info från modellen, GetScore och GetGrid typ
-         * From1 är synonymt med View, kolla om man kan byta namn
-         * bara ett modell objekt, dubble array uppdateras vid omstart
-         * sdf
-         * uppgifter, lägg till score, lägg till så att rad faller ner ovan ifrån
+         * TODO fler förslag:
+         * - lägg till ett score-system
+         * - gör det mer likt det riktiga tetris så att rader faller ner ovanifrån
          */
 
-/*        private const int NUM_ROWS = 7;
-        private const int NUM_COLS = 5;
-*/
+        public const int NUM_ROWS = 7;
+        public const int NUM_COLS = 5;
+
+        // controller till vilken användarens input rapporteras
         private Controller controller;
 
         public View()
@@ -26,29 +19,33 @@ namespace BoringTetris
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Metod som tillåter controller-variabeln att tilldelas
+        /// </summary>
         internal void RegisterController(Controller controller)
         {
             this.controller = controller;
         }
 
+        /// <summary>
+        /// Fyll ett block med innehåll
+        /// </summary>
         public void Set(int row, int col)
         {
             set(row, col, Properties.Resources.tetris_block_green);
         }
 
+        /// <summary>
+        /// Töm ett block från innehåll
+        /// </summary>
         public void Clear(int row, int col)
         {
             set(row, col, Properties.Resources.tetris_block_dark);
         }
 
-        /*        public void ClearRow(int row)
-                {
-                    for (int col = 0; col < NUM_COLS; col++)
-                    {
-                        set(row, col, Properties.Resources.tetris_block_dark);
-                    }
-                }
-        */
+        /// <summary>
+        /// Sätt bilden på PictureBox som motsvarar row och col
+        /// </summary>
         private void set(int row, int col, Bitmap bitmap)
         {
             // första raden
@@ -138,11 +135,17 @@ namespace BoringTetris
         private void pic6_3_Click(object sender, EventArgs e) { click(6, 3); }
         private void pic6_4_Click(object sender, EventArgs e) { click(6, 4); }
 
+        /// <summary>
+        /// Meddela controllern att ett block blivit klickat.
+        /// </summary>
         private void click(int row, int col)
         {
             controller.Click(row, col);
         }
 
+        /// <summary>
+        /// Meddela controllern att clear-knappen blivit tryckt.
+        /// </summary>
         private void buttonClear_Click(object sender, EventArgs e)
         {
             controller.Clear();
