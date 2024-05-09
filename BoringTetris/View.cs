@@ -16,6 +16,9 @@ namespace BoringTetris
          * uppgifter, lägg till score, lägg till så att rad faller ner ovan ifrån
          */
 
+/*        private const int NUM_ROWS = 7;
+        private const int NUM_COLS = 5;
+*/
         private Controller controller;
 
         public View()
@@ -28,12 +31,69 @@ namespace BoringTetris
             this.controller = controller;
         }
 
-
-        private void buttonClear_Click(object sender, EventArgs e)
+        public void Set(int row, int col)
         {
-            MessageBox.Show("Hi");
+            set(row, col, Properties.Resources.tetris_block_green);
         }
 
+        public void Clear(int row, int col)
+        {
+            set(row, col, Properties.Resources.tetris_block_dark);
+        }
+
+        /*        public void ClearRow(int row)
+                {
+                    for (int col = 0; col < NUM_COLS; col++)
+                    {
+                        set(row, col, Properties.Resources.tetris_block_dark);
+                    }
+                }
+        */
+        private void set(int row, int col, Bitmap bitmap)
+        {
+            // första raden
+            if (row == 0 && col == 0) { pic0_0.Image = bitmap; }
+            if (row == 0 && col == 1) { pic0_1.Image = bitmap; }
+            if (row == 0 && col == 2) { pic0_2.Image = bitmap; }
+            if (row == 0 && col == 3) { pic0_3.Image = bitmap; }
+            if (row == 0 && col == 4) { pic0_4.Image = bitmap; }
+            // andra raden
+            if (row == 1 && col == 0) { pic1_0.Image = bitmap; }
+            if (row == 1 && col == 1) { pic1_1.Image = bitmap; }
+            if (row == 1 && col == 2) { pic1_2.Image = bitmap; }
+            if (row == 1 && col == 3) { pic1_3.Image = bitmap; }
+            if (row == 1 && col == 4) { pic1_4.Image = bitmap; }
+            // tredje raden
+            if (row == 2 && col == 0) { pic2_0.Image = bitmap; }
+            if (row == 2 && col == 1) { pic2_1.Image = bitmap; }
+            if (row == 2 && col == 2) { pic2_2.Image = bitmap; }
+            if (row == 2 && col == 3) { pic2_3.Image = bitmap; }
+            if (row == 2 && col == 4) { pic2_4.Image = bitmap; }
+            // fjärde raden
+            if (row == 3 && col == 0) { pic3_0.Image = bitmap; }
+            if (row == 3 && col == 1) { pic3_1.Image = bitmap; }
+            if (row == 3 && col == 2) { pic3_2.Image = bitmap; }
+            if (row == 3 && col == 3) { pic3_3.Image = bitmap; }
+            if (row == 3 && col == 4) { pic3_4.Image = bitmap; }
+            // femte raden
+            if (row == 4 && col == 0) { pic4_0.Image = bitmap; }
+            if (row == 4 && col == 1) { pic4_1.Image = bitmap; }
+            if (row == 4 && col == 2) { pic4_2.Image = bitmap; }
+            if (row == 4 && col == 3) { pic4_3.Image = bitmap; }
+            if (row == 4 && col == 4) { pic4_4.Image = bitmap; }
+            // sjätte raden
+            if (row == 5 && col == 0) { pic5_0.Image = bitmap; }
+            if (row == 5 && col == 1) { pic5_1.Image = bitmap; }
+            if (row == 5 && col == 2) { pic5_2.Image = bitmap; }
+            if (row == 5 && col == 3) { pic5_3.Image = bitmap; }
+            if (row == 5 && col == 4) { pic5_4.Image = bitmap; }
+            // sjunde raden
+            if (row == 6 && col == 0) { pic6_0.Image = bitmap; }
+            if (row == 6 && col == 1) { pic6_1.Image = bitmap; }
+            if (row == 6 && col == 2) { pic6_2.Image = bitmap; }
+            if (row == 6 && col == 3) { pic6_3.Image = bitmap; }
+            if (row == 6 && col == 4) { pic6_4.Image = bitmap; }
+        }
 
         // första raden
         private void pic0_0_Click(object sender, EventArgs e) { click(0, 0); }
@@ -78,11 +138,14 @@ namespace BoringTetris
         private void pic6_3_Click(object sender, EventArgs e) { click(6, 3); }
         private void pic6_4_Click(object sender, EventArgs e) { click(6, 4); }
 
-
-
         private void click(int row, int col)
         {
             controller.Click(row, col);
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            controller.Clear();
         }
     }
 }

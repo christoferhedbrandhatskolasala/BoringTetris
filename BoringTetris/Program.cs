@@ -13,8 +13,7 @@ namespace BoringTetris
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-
-            Model model = new Model();
+            Model model = new Model(7, 5);
             View view = new View();
             Controller controller = new Controller(model, view);
 

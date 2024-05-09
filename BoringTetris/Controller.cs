@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BoringTetris
+﻿namespace BoringTetris
 {
     internal class Controller
     {
@@ -21,12 +15,32 @@ namespace BoringTetris
         public void Click(int row, int col)
         {
             model.Set(row, col);
+            updateView();
         }
 
-        private void setViewRow(int row)
+        public void Clear()
         {
-
+            model.Clear();
+            updateView();
         }
 
+        private void updateView()
+        {
+            for (int row = 0; row < model.NumRows(); row++)
+            {
+                for (int col = 0; col < model.NumCols(); col++)
+                {
+                    bool blockStatus = model.Get(row, col);
+                    if (blockStatus)
+                    {
+                        view.Set(row, col);
+                    }
+                    else
+                    {
+                        view.Clear(row, col);
+                    }
+                }
+            }
+        }
     }
 }

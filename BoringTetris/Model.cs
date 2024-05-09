@@ -21,24 +21,34 @@
         public void Set(int row, int col)
         {
             matrix[row, col] = true;
-            removeAnyCompleteRows();
+            clearAnyCompleteRows();
         }
 
-        public void Reset()
+        public void Clear()
         {
             for (int row = 0; row < numRows; row++)
             {
-                resetRow(row);
+                clearRow(row);
             }
         }
 
-        private void removeAnyCompleteRows()
+        public int NumRows()
+        {
+            return numRows;
+        }
+
+        public int NumCols()
+        {
+            return numCols;
+        }
+
+        private void clearAnyCompleteRows()
         {
             for (int row = 0; row < numRows; row++)
             {
                 if (isRowComplete(row))
                 {
-                    resetRow(row);
+                    clearRow(row);
                 }
             }
         }
@@ -55,7 +65,7 @@
             return true;
         }
 
-        private void resetRow(int row)
+        private void clearRow(int row)
         {
             for (int col = 0; col < numCols; col++)
             {
