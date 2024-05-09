@@ -2,12 +2,6 @@ namespace BoringTetris
 {
     public partial class View : Form
     {
-        /*
-         * TODO fler förslag:
-         * - lägg till ett score-system
-         * - gör det mer likt det riktiga tetris så att rader faller ner ovanifrån
-         */
-
         public const int NUM_ROWS = 7;
         public const int NUM_COLS = 5;
 

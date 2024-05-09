@@ -539,6 +539,8 @@ namespace BoringTetris
             Controls.Add(pic2_4);
             Controls.Add(pic2_0);
             Controls.Add(buttonClear);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "View";
             Text = "BoringTetris";
             ((System.ComponentModel.ISupportInitialize)pic0_0).EndInit();
