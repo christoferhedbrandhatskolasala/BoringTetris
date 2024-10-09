@@ -38,52 +38,64 @@ namespace BoringTetris
         }
 
         /// <summary>
+        /// Hämta PictureBox som motsvarar row och col
+        /// </summary>
+        private PictureBox get(int row, int col)
+        {
+            // första raden
+            if (row == 0 && col == 0) { return pic0_0; }
+            if (row == 0 && col == 1) { return pic0_1; }
+            if (row == 0 && col == 2) { return pic0_2; }
+            if (row == 0 && col == 3) { return pic0_3; }
+            if (row == 0 && col == 4) { return pic0_4; }
+            // andra raden
+            if (row == 1 && col == 0) { return pic1_0; }
+            if (row == 1 && col == 1) { return pic1_1; }
+            if (row == 1 && col == 2) { return pic1_2; }
+            if (row == 1 && col == 3) { return pic1_3; }
+            if (row == 1 && col == 4) { return pic1_4; }
+            // tredje raden
+            if (row == 2 && col == 0) { return pic2_0; }
+            if (row == 2 && col == 1) { return pic2_1; }
+            if (row == 2 && col == 2) { return pic2_2; }
+            if (row == 2 && col == 3) { return pic2_3; }
+            if (row == 2 && col == 4) { return pic2_4; }
+            // fjärde raden
+            if (row == 3 && col == 0) { return pic3_0; }
+            if (row == 3 && col == 1) { return pic3_1; }
+            if (row == 3 && col == 2) { return pic3_2; }
+            if (row == 3 && col == 3) { return pic3_3; }
+            if (row == 3 && col == 4) { return pic3_4; }
+            // femte raden
+            if (row == 4 && col == 0) { return pic4_0; }
+            if (row == 4 && col == 1) { return pic4_1; }
+            if (row == 4 && col == 2) { return pic4_2; }
+            if (row == 4 && col == 3) { return pic4_3; }
+            if (row == 4 && col == 4) { return pic4_4; }
+            // sjätte raden
+            if (row == 5 && col == 0) { return pic5_0; }
+            if (row == 5 && col == 1) { return pic5_1; }
+            if (row == 5 && col == 2) { return pic5_2; }
+            if (row == 5 && col == 3) { return pic5_3; }
+            if (row == 5 && col == 4) { return pic5_4; }
+            // sjunde raden
+            if (row == 6 && col == 0) { return pic6_0; }
+            if (row == 6 && col == 1) { return pic6_1; }
+            if (row == 6 && col == 2) { return pic6_2; }
+            if (row == 6 && col == 3) { return pic6_3; }
+            if (row == 6 && col == 4) { return pic6_4; }
+
+            // kasta ett fel om rad och kolumn inte finns
+            throw new ArgumentException($"Illegal argument row {row} col {col}");
+        }
+
+        /// <summary>
         /// Sätt bilden på PictureBox som motsvarar row och col
         /// </summary>
         private void set(int row, int col, Bitmap bitmap)
         {
-            // första raden
-            if (row == 0 && col == 0) { pic0_0.Image = bitmap; }
-            if (row == 0 && col == 1) { pic0_1.Image = bitmap; }
-            if (row == 0 && col == 2) { pic0_2.Image = bitmap; }
-            if (row == 0 && col == 3) { pic0_3.Image = bitmap; }
-            if (row == 0 && col == 4) { pic0_4.Image = bitmap; }
-            // andra raden
-            if (row == 1 && col == 0) { pic1_0.Image = bitmap; }
-            if (row == 1 && col == 1) { pic1_1.Image = bitmap; }
-            if (row == 1 && col == 2) { pic1_2.Image = bitmap; }
-            if (row == 1 && col == 3) { pic1_3.Image = bitmap; }
-            if (row == 1 && col == 4) { pic1_4.Image = bitmap; }
-            // tredje raden
-            if (row == 2 && col == 0) { pic2_0.Image = bitmap; }
-            if (row == 2 && col == 1) { pic2_1.Image = bitmap; }
-            if (row == 2 && col == 2) { pic2_2.Image = bitmap; }
-            if (row == 2 && col == 3) { pic2_3.Image = bitmap; }
-            if (row == 2 && col == 4) { pic2_4.Image = bitmap; }
-            // fjärde raden
-            if (row == 3 && col == 0) { pic3_0.Image = bitmap; }
-            if (row == 3 && col == 1) { pic3_1.Image = bitmap; }
-            if (row == 3 && col == 2) { pic3_2.Image = bitmap; }
-            if (row == 3 && col == 3) { pic3_3.Image = bitmap; }
-            if (row == 3 && col == 4) { pic3_4.Image = bitmap; }
-            // femte raden
-            if (row == 4 && col == 0) { pic4_0.Image = bitmap; }
-            if (row == 4 && col == 1) { pic4_1.Image = bitmap; }
-            if (row == 4 && col == 2) { pic4_2.Image = bitmap; }
-            if (row == 4 && col == 3) { pic4_3.Image = bitmap; }
-            if (row == 4 && col == 4) { pic4_4.Image = bitmap; }
-            // sjätte raden
-            if (row == 5 && col == 0) { pic5_0.Image = bitmap; }
-            if (row == 5 && col == 1) { pic5_1.Image = bitmap; }
-            if (row == 5 && col == 2) { pic5_2.Image = bitmap; }
-            if (row == 5 && col == 3) { pic5_3.Image = bitmap; }
-            if (row == 5 && col == 4) { pic5_4.Image = bitmap; }
-            // sjunde raden
-            if (row == 6 && col == 0) { pic6_0.Image = bitmap; }
-            if (row == 6 && col == 1) { pic6_1.Image = bitmap; }
-            if (row == 6 && col == 2) { pic6_2.Image = bitmap; }
-            if (row == 6 && col == 3) { pic6_3.Image = bitmap; }
-            if (row == 6 && col == 4) { pic6_4.Image = bitmap; }
+            PictureBox pictureBox = get(row, col);
+            pictureBox.Image = bitmap;
         }
 
         // första raden
