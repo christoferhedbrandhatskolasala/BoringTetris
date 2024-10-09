@@ -60,6 +60,9 @@
                     }
                 }
             }
+
+            int score = model.GetScore();
+            view.SetScore(score);
         }
     }
 }

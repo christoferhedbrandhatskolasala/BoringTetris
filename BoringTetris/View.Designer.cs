@@ -66,6 +66,8 @@ namespace BoringTetris
             pic6_3 = new PictureBox();
             pic6_4 = new PictureBox();
             pic6_0 = new PictureBox();
+            labelScore = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pic0_0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic0_4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic0_3).BeginInit();
@@ -498,11 +500,31 @@ namespace BoringTetris
             pic6_0.TabStop = false;
             pic6_0.Click += pic6_0_Click;
             // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Location = new Point(178, 21);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(17, 20);
+            labelScore.TabIndex = 43;
+            labelScore.Text = "0";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(123, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 20);
+            label1.TabIndex = 44;
+            label1.Text = "Score:";
+            // 
             // View
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(240, 396);
+            Controls.Add(label1);
+            Controls.Add(labelScore);
             Controls.Add(pic6_1);
             Controls.Add(pic6_2);
             Controls.Add(pic6_3);
@@ -579,6 +601,7 @@ namespace BoringTetris
             ((System.ComponentModel.ISupportInitialize)pic6_4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic6_0).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -619,5 +642,7 @@ namespace BoringTetris
         private PictureBox pic6_3;
         private PictureBox pic6_4;
         private PictureBox pic6_0;
+        private Label labelScore;
+        private Label label1;
     }
 }

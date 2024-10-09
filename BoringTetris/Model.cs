@@ -12,6 +12,8 @@
         // false betyder att de är tomma, true att de blivit klickade
         private bool[,] matrix;
 
+        private int score = 0;
+
         public Model(int numRows, int numCols)
         {
             this.numRows = numRows;
@@ -25,6 +27,11 @@
         public bool Get(int row, int col)
         {
             return matrix[row, col];
+        }
+
+        public int GetScore()
+        {
+            return score;
         }
 
         /// <summary>
@@ -45,6 +52,8 @@
             {
                 clearRow(row);
             }
+
+            score = 0;
         }
 
         /// <summary>
@@ -74,6 +83,8 @@
                 // om alla block i raden blivit klickade
                 if (isRowComplete(row))
                 {
+                    // öka score
+                    score++;
                     // återställ raden
                     clearRow(row);
                 }

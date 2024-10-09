@@ -1,3 +1,5 @@
+using System.Security.Policy;
+
 namespace BoringTetris
 {
     public partial class View : Form
@@ -35,6 +37,11 @@ namespace BoringTetris
         public void Clear(int row, int col)
         {
             set(row, col, Properties.Resources.tetris_block_dark);
+        }
+
+        public void SetScore(int score)
+        {
+            labelScore.Text = score.ToString();
         }
 
         /// <summary>
